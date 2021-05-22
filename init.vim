@@ -52,6 +52,10 @@ Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
 Plug 'dracula/vim', { 'as': 'dracula' }
 " kmacoders
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'editorconfig/editorconfig-vim'
+Plug 'tpope/vim-commentary'
+" kmacoders: git lens for vim
+Plug 'apzelos/blamer.nvim'
 
 
 if isdirectory('/usr/local/opt/fzf')
@@ -178,6 +182,29 @@ set shiftwidth=2    " Indents will have a width of 2
 set softtabstop=2   " Sets the number of columns for a TAB
 set expandtab       " Expand TABs to spaces
 
+"Copy từ VIM ra ngoài Clipboard, mặc định VIM chỉ lưu trong Register luc yank
+set clipboard=unnamedplus
+
+"Tự động cập nhật khi file thay đổi (bởi chương trình khác)
+set autoread
+set autowrite
+
+"Tự động indent
+set autoindent
+set si "smart indent
+
+"Bật syntax
+syntax on
+
+" Tự động bật blamer ( git lens ) khi start vim | delay show msg là 2s
+let g:blamer_enabled = 1
+let g:blamer_delay = 2000
+
+" Cho phép modifier nertree, terminal in vim
+" Link: https://stackoverflow.com/questions/5745506/vim-modifiable-is-off
+:set modifiable
+
+
 "--------------------------------------------------------------------------
 " MAP KEY kmacoders
 "----------------------------------------------------------------------------
@@ -185,6 +212,21 @@ set expandtab       " Expand TABs to spaces
 "SAVE FILE
 " Double j to Normal Mode
 inoremap jj <Esc>
+
+" Move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-l> <C-W>l
+map <C-h> <C-W>h
+
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
+
+" Vim commentary kmacoders
+nnoremap <silent> / :'<,'>Commentary<CR>
+
 
 
 
