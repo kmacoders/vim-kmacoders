@@ -56,6 +56,8 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-commentary'
 " kmacoders: git lens for vim
 Plug 'apzelos/blamer.nvim'
+" Mo terminal ngay tren vim
+Plug 'voldikss/vim-floaterm'
 
 
 if isdirectory('/usr/local/opt/fzf')
@@ -191,7 +193,7 @@ set autowrite
 
 "Tự động indent
 set autoindent
-set si "smart indent
+set smartindent
 
 "Bật syntax
 syntax on
@@ -204,6 +206,9 @@ let g:blamer_delay = 2000
 " Link: https://stackoverflow.com/questions/5745506/vim-modifiable-is-off
 :set modifiable
 
+" Chuyển dạng khác của con trỏ khi sang Insert Mode
+" Link: https://stackoverflow.com/questions/6488683/how-do-i-change-the-cursor-between-normal-and-insert-modes-in-vim
+set guicursor+=n-v-c:blinkon0
 
 "--------------------------------------------------------------------------
 " MAP KEY kmacoders
@@ -224,11 +229,15 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-" Vim commentary kmacoders
-nnoremap <silent> / :'<,'>Commentary<CR>
+" Key binding ---------
+" GÁN LẠI CHO NÚT LEADER = SPACE
+let mapleader=" "
 
+" Split
+nnoremap <Leader>l :vsplit<CR>
+nnoremap <Leader>h :split<CR>
 
-
+" Comments ( gc )
 
 "*****************************************************************************
 "" Visual Settings
@@ -388,10 +397,6 @@ set autoread
 "" Mappings
 "*****************************************************************************
 
-"" Split
-noremap <Leader>h :<C-u>split<CR>
-noremap <Leader>v :<C-u>vsplit<CR>
-
 "" Git
 noremap <Leader>ga :Gwrite<CR>
 noremap <Leader>gc :Gcommit<CR>
@@ -491,12 +496,6 @@ noremap <leader>c :bd<CR>
 
 "" Clean search (highlight)
 nnoremap <silent> <leader><space> :noh<cr>
-
-"" Switching windows
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
-noremap <C-h> <C-w>h
 
 "" Vmap for maintain Visual Mode after shifting > and <
 vmap < <gv
@@ -779,3 +778,21 @@ let g:coc_global_extensions = [
       \'coc-css',
       \'coc-html',
       \]
+
+
+"---------------------------------------------------------------------------------------------------
+" FLOATTERM SETTINGS
+"-------------------------------------------------------------------------------------------------
+" Configuration example
+let g:floaterm_keymap_new    = '<F6>'
+let g:floaterm_keymap_prev   = '<F7>'
+let g:floaterm_keymap_next   = '<F8>'
+let g:floaterm_keymap_toggle = '<F9>'
+let g:floaterm_keymap_kill = '<F10>'
+let g:floaterm_width = 0.8
+let g:floaterm_height = 0.8
+
+" Set floaterm window's background to black
+hi Floaterm guibg=black
+" Set floating window border line color to cyan, and background to orange
+hi FloatermBorder guibg=orange guifg=cyan
