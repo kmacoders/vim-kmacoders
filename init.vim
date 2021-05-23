@@ -58,6 +58,7 @@ Plug 'tpope/vim-commentary'
 Plug 'apzelos/blamer.nvim'
 " Mo terminal ngay tren vim
 Plug 'voldikss/vim-floaterm'
+Plug 'easymotion/vim-easymotion'
 
 
 if isdirectory('/usr/local/opt/fzf')
@@ -210,6 +211,13 @@ let g:blamer_delay = 2000
 " Link: https://stackoverflow.com/questions/6488683/how-do-i-change-the-cursor-between-normal-and-insert-modes-in-vim
 set guicursor+=n-v-c:blinkon0
 
+" Searching
+" Cài grep.vim rồi cài Silver Searcher ( khác nhau với từng OS )
+" Sau đó import câu lệnh bên dưới vào
+" https://github.com/ggreer/the_silver_searcher
+let g:ackprg = 'ag --vimgrep'
+
+
 "--------------------------------------------------------------------------
 " MAP KEY kmacoders
 "----------------------------------------------------------------------------
@@ -238,6 +246,8 @@ nnoremap <Leader>l :vsplit<CR>
 nnoremap <Leader>h :split<CR>
 
 " Comments ( gc )
+
+" Search map ( :Ag )
 
 "*****************************************************************************
 "" Visual Settings
@@ -796,3 +806,23 @@ let g:floaterm_height = 0.8
 hi Floaterm guibg=black
 " Set floating window border line color to cyan, and background to orange
 hi FloatermBorder guibg=orange guifg=cyan
+
+
+"---------------------------------------------------------------------------------------------------
+" EASY MOTION SETTINGS
+"-------------------------------------------------------------------------------------------------
+" <Leader>f{char} to move to {char}
+map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+
+" s{char}{char} to move to {char}{char}
+nmap s <Plug>(easymotion-overwin-f2)
+
+" Move to line
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
+
