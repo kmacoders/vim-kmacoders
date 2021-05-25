@@ -59,6 +59,7 @@ Plug 'apzelos/blamer.nvim'
 " Mo terminal ngay tren vim
 Plug 'voldikss/vim-floaterm'
 Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-liquid'
 
 
 if isdirectory('/usr/local/opt/fzf')
