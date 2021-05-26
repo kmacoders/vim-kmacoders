@@ -1,6 +1,6 @@
-"*****************************************************************************
-"" Vim-Plug core
-"*****************************************************************************
+" ======================================================================================
+" Vim-Plug core | Tu dong install Vim Plug neu chua co
+" ======================================================================================
 let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
 if has('win32')&&!has('win64')
   let curl_exists=expand('C:\Windows\Sysnative\curl.exe')
@@ -21,52 +21,72 @@ if !filereadable(vimplug_exists)
   autocmd VimEnter * PlugInstall
 endif
 
+
+" ======================================================================================
+" Plug install packages
+" ======================================================================================
 " Required: Chi dinh 1 thu muc cho cac plugin {{Plug
 call plug#begin(expand('~/.config/nvim/plugged'))
-
-"*****************************************************************************
-"" Plug install packages
-"*****************************************************************************
-
-"Theme
-Plug 'dracula/vim', { 'as': 'dracula' }
 
 " Tab
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 
-"" Javascript
-Plug 'jelera/vim-javascript-syntax'
+" Theme
+Plug 'tomasr/molokai'
 
-" typescript
-Plug 'leafgarland/typescript-vim'
-Plug 'HerringtonDarkholme/yats.vim'
+" Editor Config
+Plug 'editorconfig/editorconfig-vim'
+
+" Typescript
+Plug 'herringtondarkholme/yats.vim'
 
 " Vue
 Plug 'posva/vim-vue'
 
+" SCSS
+Plug 'cakebaker/scss-syntax.vim'
 
-" Initialize plugin system | Khoi tao plugin Plug}}
+" Initialize plugin system Plug}}
 call plug#end()
 
+" ======================================================================================
+" Visual Settings
+" ======================================================================================
+set termguicolors
+set foldmethod=marker
 
-"*****************************************************************************
-"" Visual Settings
-"*****************************************************************************
-syntax on
-set ruler
+" Di chuot trong vim
+set mouse=a 
+
+set nowrap
 set number
-let no_buffers_menu=1
 
-"*****************************************************************************
-"" Plug Config
-"*****************************************************************************
+" utf-8 by default in files
+set enc=utf-8	
 
-"dracula/vim
+" show status bar always
+set ls=2
+
+" highlight search	
+set hlsearch	
+set showtabline=0
+highlight LineNr ctermfg=gray
+
+" popup autocomplete menu color
+highlight Pmenu ctermbg=gray guibg=gray 
+
+" ======================================================================================
+" Plug Config
+" ======================================================================================
+
+" Theme --
 set t_Co=256
-colorscheme dracula
+highlight Normal guibg=black guifg=white
+set background=dark
+colo molokai
 
-"nerdtree | vim-nerdtree-tabs
+" nerdtree | vim-nerdtree-tabs
 let g:NERDTreeChDirMode=2
 let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
 let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
@@ -78,13 +98,6 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 nnoremap <silent> <F2> :NERDTreeFind<CR>
 nnoremap <silent> <F3> :NERDTreeToggle<CR>
 
-" vim-javascript-syntax
-let g:javascript_enable_domhtmlcss = 1
-
-" typescript
-let g:yats_host_keyword = 1
-
-"vim-vue | vim-vue-plugin
-" vim vue
-let g:vue_disable_pre_processors=1
-autocmd FileType vue syntax sync fromstart	" fix sync in vue files
+" Vim vue --
+" fix sync in vue files
+autocmd FileType vue syntax sync fromstart
