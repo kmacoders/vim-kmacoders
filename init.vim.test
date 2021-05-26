@@ -81,6 +81,9 @@ Plug 'Yggdroot/indentLine'
 " Auto close tag
 Plug 'Raimondi/delimitMate'
 
+" Linting
+Plug 'dense-analysis/ale'
+
 
 " Initialize plugin system Plug}}
 call plug#end()
@@ -201,6 +204,11 @@ let g:blamer_delay = 2000
 highlight GitGutterAdd    guifg=#009900 ctermfg=2
 highlight GitGutterChange guifg=#bbbb00 ctermfg=3
 highlight GitGutterDelete guifg=#ff2222 ctermfg=1
+
+" Ale : Linting ---------
+" Fix file voi prettier roi den eslint
+let b:ale_fixers = ['prettier', 'eslint']
+let g:ale_linters = {}
 
 " IndentLine ( custom line keo tu open tag -> close tag )
 let g:indentLine_enabled = 1
