@@ -84,6 +84,11 @@ Plug 'Raimondi/delimitMate'
 " Linting
 Plug 'dense-analysis/ale'
 
+"" Snippets
+" Track the engine.
+Plug 'SirVer/ultisnips'
+" Snippets are separated from the engine. Add this if you want them:
+Plug 'honza/vim-snippets'
 
 " Initialize plugin system Plug}}
 call plug#end()
@@ -193,6 +198,14 @@ let g:ackprg = 'ag --vimgrep'
 " Vim vue --
 " fix sync in vue files
 autocmd FileType vue syntax sync fromstart
+
+
+" snippets
+" click 'tab' de show snipet ( vd: shopify snipet... )
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+let g:UltiSnipsEditSplit="vertical"
 
 " Git Blamer --
 " Tự động bật blamer ( git lens ) khi start vim | delay show msg là 2s
