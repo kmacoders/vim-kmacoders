@@ -47,6 +47,9 @@ Plug 'posva/vim-vue'
 " SCSS
 Plug 'cakebaker/scss-syntax.vim'
 
+" Liquid
+Plug 'tpope/vim-liquid'
+
 " Commnent
 Plug 'tpope/vim-commentary'
 
@@ -64,6 +67,10 @@ Plug 'junegunn/fzf.vim'
 
 " Quick move
 Plug 'easymotion/vim-easymotion'
+
+" Git
+Plug 'airblade/vim-gitgutter'
+Plug 'apzelos/blamer.nvim'
 
 
 " Initialize plugin system Plug}}
@@ -174,6 +181,17 @@ let g:ackprg = 'ag --vimgrep'
 " Vim vue --
 " fix sync in vue files
 autocmd FileType vue syntax sync fromstart
+
+" Git Blamer --
+" Tự động bật blamer ( git lens ) khi start vim | delay show msg là 2s
+let g:blamer_enabled = 1
+let g:blamer_delay = 2000
+
+" Gitgutter
+" Mau cua add, change, remove line code
+highlight GitGutterAdd    guifg=#009900 ctermfg=2
+highlight GitGutterChange guifg=#bbbb00 ctermfg=3
+highlight GitGutterDelete guifg=#ff2222 ctermfg=1
 
 " Vim Commnetary --
 " gc to commnent
