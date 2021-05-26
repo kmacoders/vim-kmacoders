@@ -62,12 +62,63 @@ Plug 'vim-scripts/grep.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+" Quick move
+Plug 'easymotion/vim-easymotion'
+
 
 " Initialize plugin system Plug}}
 call plug#end()
 
+
 " ======================================================================================
-" Visual Settings
+" Mapping
+" ======================================================================================
+
+" Double j to Normal Mode
+inoremap jj <Esc>
+
+" Move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-l> <C-W>l
+map <C-h> <C-W>h
+
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
+
+" Key binding ---------
+" GÁN LẠI CHO NÚT LEADER = SPACE
+let mapleader=" "
+
+" Split
+nnoremap <Leader>l :vsplit<CR>
+nnoremap <Leader>h :split<CR>
+
+" ======================================================================================
+" kmacoders Settings
+" ======================================================================================
+
+" Enable mouse use in all modes ( bật chuột )
+set mouse=a
+" turn relative line numbers on ( chuyển hệ thước về relative, dòng hiện tại là số 0)
+:set relativenumber
+:set rnu
+
+"Copy từ VIM ra ngoài Clipboard, mặc định VIM chỉ lưu trong Register luc yank
+set clipboard=unnamedplus
+
+"Tự động cập nhật khi file thay đổi (bởi chương trình khác)
+set autoread
+set autowrite
+
+"Tự động indent
+set autoindent
+set smartindent
+
+" ======================================================================================
+" General Settings
 " ======================================================================================
 set termguicolors
 set foldmethod=marker
@@ -314,4 +365,19 @@ let g:coc_global_extensions = [
       \'coc-html',
       \]
 
+" Easy motion --
+" <Leader>f{char} to move to {char}
+map  <Leader>f <Plug>(easymotion-bd-f)/W
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+
+" s{char}{char} to move to {char}{char}
+nmap s <Plug>(easymotion-overwin-f2)
+
+" Move to line
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
 
