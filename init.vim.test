@@ -33,7 +33,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 
 " Theme
-Plug 'tomasr/molokai'
+Plug 'dracula/vim'
 
 " Editor Config
 Plug 'editorconfig/editorconfig-vim'
@@ -182,7 +182,7 @@ highlight Pmenu ctermbg=gray guibg=gray
 set t_Co=256
 highlight Normal guibg=black guifg=white
 set background=dark
-colo molokai
+color dracula
 
 " nerdtree | vim-nerdtree-tabs
 let g:NERDTreeChDirMode=2
