@@ -44,11 +44,18 @@ Plug 'herringtondarkholme/yats.vim'
 " Vue
 Plug 'posva/vim-vue'
 
+" CSS
+Plug 'hail2u/vim-css3-syntax'
+Plug 'ap/vim-css-color'
+
 " SCSS
 Plug 'cakebaker/scss-syntax.vim'
 
 " Liquid
 Plug 'tpope/vim-liquid'
+
+" Emmet
+Plug 'mattn/emmet-vim'
 
 " Commnent
 Plug 'tpope/vim-commentary'
