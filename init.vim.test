@@ -47,6 +47,13 @@ Plug 'posva/vim-vue'
 " SCSS
 Plug 'cakebaker/scss-syntax.vim'
 
+" Commnent
+Plug 'tpope/vim-commentary'
+
+" Vim Airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 " Initialize plugin system Plug}}
 call plug#end()
 
@@ -101,3 +108,6 @@ nnoremap <silent> <F3> :NERDTreeToggle<CR>
 " Vim vue --
 " fix sync in vue files
 autocmd FileType vue syntax sync fromstart
+
+" Vim Commnetary
+" gc to commnent
