@@ -72,6 +72,9 @@ Plug 'easymotion/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
 Plug 'apzelos/blamer.nvim'
 
+" Terminal
+Plug 'voldikss/vim-floaterm'
+
 
 " Initialize plugin system Plug}}
 call plug#end()
@@ -383,7 +386,7 @@ let g:coc_global_extensions = [
       \'coc-html',
       \]
 
-" Easy motion --
+" Easy motion ---------------------
 " <Leader>f{char} to move to {char}
 map  <Leader>f <Plug>(easymotion-bd-f)/W
 nmap <Leader>f <Plug>(easymotion-overwin-f)
@@ -398,4 +401,18 @@ nmap <Leader>L <Plug>(easymotion-overwin-line)
 " Move to word
 map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
+
+" Floaterm config ------------------
+let g:floaterm_keymap_new    = '<F6>'
+let g:floaterm_keymap_prev   = '<F7>'
+let g:floaterm_keymap_next   = '<F8>'
+let g:floaterm_keymap_toggle = '<F9>'
+let g:floaterm_keymap_kill = '<F10>'
+let g:floaterm_width = 0.8
+let g:floaterm_height = 0.8
+
+" Set floaterm window's background to black
+hi Floaterm guibg=black
+" Set floating window border line color to red, and background to white
+hi FloatermBorder guifg=DarkOrange1
 
