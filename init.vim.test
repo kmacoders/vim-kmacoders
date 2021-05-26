@@ -78,6 +78,9 @@ Plug 'voldikss/vim-floaterm'
 " IdentLine
 Plug 'Yggdroot/indentLine'
 
+" Auto close tag
+Plug 'Raimondi/delimitMate'
+
 
 " Initialize plugin system Plug}}
 call plug#end()
