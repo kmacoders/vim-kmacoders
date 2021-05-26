@@ -75,6 +75,9 @@ Plug 'apzelos/blamer.nvim'
 " Terminal
 Plug 'voldikss/vim-floaterm'
 
+" IdentLine
+Plug 'Yggdroot/indentLine'
+
 
 " Initialize plugin system Plug}}
 call plug#end()
@@ -195,6 +198,12 @@ let g:blamer_delay = 2000
 highlight GitGutterAdd    guifg=#009900 ctermfg=2
 highlight GitGutterChange guifg=#bbbb00 ctermfg=3
 highlight GitGutterDelete guifg=#ff2222 ctermfg=1
+
+" IndentLine ( custom line keo tu open tag -> close tag )
+let g:indentLine_enabled = 1
+let g:indentLine_concealcursor = 0
+let g:indentLine_char = '┆'
+let g:indentLine_faster = 1
 
 " Vim Commnetary --
 " gc to commnent
