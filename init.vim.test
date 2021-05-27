@@ -54,6 +54,9 @@ Plug 'cakebaker/scss-syntax.vim'
 " Liquid
 Plug 'tpope/vim-liquid'
 
+" All svg html php ...
+Plug 'sheerun/vim-polyglot'
+
 " Emmet
 Plug 'mattn/emmet-vim'
 
