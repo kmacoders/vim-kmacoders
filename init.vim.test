@@ -74,6 +74,7 @@ Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install() } }
 Plug 'vim-scripts/grep.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'kqito/vim-easy-replace'
 
 " Quick move
 Plug 'easymotion/vim-easymotion'
@@ -241,6 +242,9 @@ let g:indentLine_faster = 1
 
 " Vim Commnetary --
 " gc to commnent
+
+" Vim easy replace
+" <Leader>ra
 
 " FZF - search ngoai tru node_modules | dist
 set wildmode=list:longest,list:full
