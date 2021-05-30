@@ -131,6 +131,16 @@ let mapleader=" "
 nnoremap <Leader>l :vsplit<CR>
 nnoremap <Leader>h :split<CR>
 
+" Fzf
+noremap af :Files<CR>
+
+" Grep, Silver Search
+noremap aw :Ag<CR>
+
+" No hight light
+map <C-h> :nohl<CR>
+
+
 " ======================================================================================
 " kmacoders Settings
 " ======================================================================================
