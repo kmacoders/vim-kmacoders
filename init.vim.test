@@ -118,18 +118,18 @@ map <C-k> <C-W>k
 map <C-l> <C-W>l
 map <C-h> <C-W>h
 
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
+noremap <Left> :echoe "Use h"<CR>
+noremap <Right> :echoe "Use l"<CR>
+noremap <Up> :echoe "Use k"<CR>
+noremap <Down> :echoe "Use j"<CR>
 
 " Key binding ---------
 " GÁN LẠI CHO NÚT LEADER = SPACE
 let mapleader=" "
 
 " Split
-nnoremap <Leader>l :vsplit<CR>
-nnoremap <Leader>h :split<CR>
+noremap <Leader>l :vsplit<CR>
+noremap <Leader>h :split<CR>
 
 " Fzf
 noremap af :Files<CR>
@@ -138,7 +138,7 @@ noremap af :Files<CR>
 noremap aw :Ag<CR>
 
 " No hight light
-map <C-h> :nohl<CR>
+noremap nh :nohl<CR>
 
 
 " ======================================================================================
