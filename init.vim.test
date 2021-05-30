@@ -188,6 +188,15 @@ highlight LineNr ctermfg=gray
 " popup autocomplete menu color
 highlight Pmenu ctermbg=gray guibg=gray 
 
+" Tắt các thể loại files backup, swap, khá là annoy và không cần thiết vì mình đã dùng git rồi
+set nobackup
+set nowb
+set noswapfile
+set backupdir=~/tmp,/tmp
+set backupcopy=yes
+set backupskip=/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*
+set directory=/tmp
+
 " ======================================================================================
 " Plug Config
 " ======================================================================================
