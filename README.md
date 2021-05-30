@@ -29,6 +29,114 @@ Gói Plug sẽ tự động cài đặt các pagekage cần thiết.
 
 Xem các command Plug để biết thêm. ( Gõ Shift + :  để gõ command ).
 
+# Map phím trong VIM
+## Intro
+
+Các mode được hỗ trợ trong Vim là normal, insert, replace, visual, select, command-line and operator-pending.
+
+Cú pháp của 1 lệnh map trong Vim
+
+```jsx
+{cmd} {attr} {lhs} {rhs}
+```
+
+Trong đó : 
+
+- { cmd } là một trong số : ':map', ':map!', ':nmap', ':vmap', ':imap',
+       ':cmap', ':smap', ':xmap', ':omap', ':lmap', etc
+- { attr } là 1 hoặc nhiều options <buffer>, <silent>, <expr> <script>, <unique> and <special>. Nhiều hơn một attribute có thể được chỉ định trong 1 câu lệnh mapping.
+- { lhs } là phía bên trái, tức là 1 hoặc nhiều phím được bạn sử dụng cho phím gán mới của mình
+- { rhs } là phía bên phải, tức là dãy phím tắt được thực thi khi nhấn phím được map
+
+Ví dụ :
+
+```jsx
+map <F2> :echo 'Current time is ' . strftime('%c')<CR>
+map! <F3> <C-R>=strftime('%c')<CR>
+nnoremap <silent> <F2> :lchdir %:p:h<CR>:pwd<CR>
+```
+
+## Danh sách các mapping key chính
+
+```jsx
+: map
+: map!
+```
+
+Map hoạt động ở mode : normal, visual, select and operator pendding.
+
+Map! hoạt động ở insert và command-line mode.
+
+Các map trong mode cụ thể ( chỉ hoạt động trong chế độ đó )
+
+```jsx
+Overview of which map command works in which mode.  More details below.
+     COMMANDS                    MODES ~
+:map   :noremap  :unmap     Normal, Visual, Select, Operator-pending
+:nmap  :nnoremap :nunmap    Normal
+:vmap  :vnoremap :vunmap    Visual and Select
+:smap  :snoremap :sunmap    Select
+:xmap  :xnoremap :xunmap    Visual
+:omap  :onoremap :ounmap    Operator-pending
+:map!  :noremap! :unmap!    Insert and Command-line
+:imap  :inoremap :iunmap    Insert
+:lmap  :lnoremap :lunmap    Insert, Command-line, Lang-Arg
+:cmap  :cnoremap :cunmap    Command-line
+```
+
+```jsx
+n  Normal mode map. Defined using ':nmap' or ':nnoremap'.
+i  Insert mode map. Defined using ':imap' or ':inoremap'.
+v  Visual and select mode map. Defined using ':vmap' or ':vnoremap'.
+x  Visual mode map. Defined using ':xmap' or ':xnoremap'.
+s  Select mode map. Defined using ':smap' or ':snoremap'.
+c  Command-line mode map. Defined using ':cmap' or ':cnoremap'.
+o  Operator pending mode map. Defined using ':omap' or ':onoremap'.
+<Space>  Normal, Visual and operator pending mode map. Defined using
+         ':map' or ':noremap'.
+!  Insert and command-line mode map. Defined using 'map!' or
+   'noremap!'.
+```
+
+Ví dụ :
+
+```jsx
+:nmap
+n  <C-W>*      * <C-W><C-S>*
+n  <C-W>#      * <C-W><C-S>#
+n  <F2>        * :lchdir %:p:h<CR>:pwd<CR>
+```
+
+Để remove đi mapping của 1 phím
+
+```jsx
+: unmap <F8>
+: unmap <F8>!
+```
+
+### Notes
+
+- Khi thực hiện những map comment như bên dưới, nếu không có <CR> hoặc <Enter> hoặc <Return> thì sau khi ấn nút map xong, sẽ bị dừng luôn ở dòng lệnh sau :ls. Mà k thực thi.
+
+```jsx
+:nnoremap <F3> :ls<CR>
+```
+
+- Sự khác nhau giữa map và noremap. map là ánh xạ đệ quy, còn noremap là ánh xạ không đệ quy.  Lấy từ :help map-recursive
+
+> :help recursive_mapping
+If you include the {lhs} in the {rhs} you have a recursive mapping. When {lhs} is typed, it will be replaced with {rhs}. When the {lhs} which is included in {rhs} is encountered it will be replaced with {rhs}, and so on.
+This makes it possible to repeat a command an infinite number of times ...
+There is one exception: If the {rhs} starts with {lhs}, the first character is not mapped again (this is Vi compatible) ... For example, if you use:
+:map x y
+:map y x
+Vim will replace x with y, and then y with x, etc.
+When this has happened 'maxmapdepth' times (default 1000), Vim will give the error message "recursive mapping".
+
+Ví dụ như lệnh bên trên, khi x được nhấn thì y được nhấn, y lại gọi đến x ( như  map bên dưới ), và x lại gọi đến y ... Cho đến khi gặp maxmapdepth và lỗi " recursive mapping ".
+
+Đó là lý do vì sao thường khuyến nghị sử dụng noremap không đệ quy ( ngoại trừ khi bạn có <Plug> ánh xạ, lúc đấy map sẽ ánh xạ đến map của plug, plug lại ánh xạ đến phím nó đã gán mặc định... ). Điều này ngăn việc treo Vim khi bạn có tình tạo các ánh xạ đệ quy.
+
 ## Config Terminal + Theme NeoVim
 
 - Font Family cho Terminal: Fira Code Medium
