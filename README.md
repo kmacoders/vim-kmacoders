@@ -184,9 +184,9 @@ Cho phép dùng mau trong vim:
 set mouse=a
 ```
 
-# Plug
+# Plug Notes
 
-1. Coc
+## Coc
 - Coc trên manjaro bị lỗi không thể tìm được nodejs ( nếu node được cài qua nvm), do đó nên cài trực tiếp như thế này. Các OS khác có thể cài node qua nvm bình thường
 
 ```jsx
@@ -250,7 +250,7 @@ hi FloatermBorder guibg=orange guifg=cyan
 
 **Sau khi cài floaterm bạn sẽ thao tác được với terminal ngay trong vim bằng các nút F6, F9.**
 
-# Search
+## Search
 
 1. Cài grep.vim plug, sau đó cài The Silver Search cho Terminal
 2. Thêm config vào file init.vim
@@ -263,4 +263,16 @@ let g:ackprg = 'ag --vimgrep'
 
 ```jsx
 :Ag word 
+```
+     
+## Icons Nerdtreee
+1. Cài nerd font cho máy ( hỗ trợ icon ). Ở đây mình cài FiraCode Nerd Font
+   Link : https://github.com/ryanoasis/nerd-fonts#font-installation
+2. Cài Plugin
+```jsx
+Plug 'ryanoasis/vim-devicons'
+```
+3. Config
+```jsx
+set encoding=UTF-8
 ```
