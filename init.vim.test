@@ -31,6 +31,10 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 " Tab
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
+" Tao icon cho nerdtree
+Plug 'ryanoasis/vim-devicons'
+" Color cho icon cua vim-devicons
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Theme
 Plug 'dracula/vim'
