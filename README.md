@@ -251,6 +251,7 @@ hi FloatermBorder guibg=orange guifg=cyan
 **Sau khi cài floaterm bạn sẽ thao tác được với terminal ngay trong vim bằng các nút F6, F9.**
 
 ## Search
+Require: Grep.vim Plug, The Silver Search
 
 1. Cài grep.vim plug, sau đó cài The Silver Search cho Terminal
 2. Thêm config vào file init.vim
@@ -265,7 +266,8 @@ let g:ackprg = 'ag --vimgrep'
 :Ag word 
 ```
      
-## Icons Nerdtreee
+## Icons Nerdtree
+Require: Nerdtree, Nerd Font
 1. Cài nerd font cho máy ( hỗ trợ icon ). Ở đây mình cài FiraCode Nerd Font
    Link : https://github.com/ryanoasis/nerd-fonts#font-installation
 2. Cài Plugin
@@ -275,4 +277,34 @@ Plug 'ryanoasis/vim-devicons'
 3. Config
 ```jsx
 set encoding=UTF-8
+```
+## Hightlight color Icons Nerdtree
+Require: Nerdtree, Nerd Font, Vim Devicons
+Nếu vim devecons giúp tạo icon cho cây thư mục nerdtree thì plugin này giúp hightligh color của các icon đó.
+1. Cài plug
+```jsx
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+```
+2. Mặc định plugin này có thể làm cho Nerdtree bị giật 1 chút, mình sẽ thêm 1 số config như sau để giảm sự lag này
+```jsx
+" vim-nerdtree-syntax-highlight
+" Custom 2 màu đặc biệt
+let s:kmacodersAppleFolderColor = "78cdf4"
+let s:kmacodersShopifyIconColor = "96BF48"
+" Màu của các folder không match rule
+let g:WebDevIconsDefaultFolderSymbolColor = s:kmacodersAppleFolderColor
+" Màu của các file không match rule ( nhất là .liquid của Shopify )
+let g:WebDevIconsDefaultFileSymbolColor = s:kmacodersShopifyIconColor
+" Giảm độ lag khi sử dụng plug tô màu icon này
+" Limit những cái ít phổ biến
+let g:NERDTreeLimitedSyntax = 1
+" Giới hạn những .extensions được tô màu
+let g:NERDTreeSyntaxDisableDefaultExtensions = 1
+let g:NERDTreeSyntaxDisableDefaultExactMatches = 1
+let g:NERDTreeSyntaxDisableDefaultPatternMatches = 1
+" Bật màu với những .extension này
+let g:NERDTreeSyntaxEnabledExtensions = ['js', 'ts', 'vue', 'svelte', 'liquid', 'html', 'css', 'scss', 'svg', 'png', 'yml', 'json', 'md']
+let g:NERDTreeSyntaxEnabledExactMatches = ['node_modules', 'favicon.ico'] " enabled exact matches with default colors
+" Tắt nền con trỏ mặc định trên nerdtree
+let g:NERDTreeHighlightCursorline = 0
 ```
