@@ -44,11 +44,15 @@ Plug 'herringtondarkholme/yats.vim'
 " Vue
 Plug 'posva/vim-vue'
 
-" CSS
+" CSS | SCSS
 Plug 'hail2u/vim-css3-syntax'
+" Color cho các mã màu
 Plug 'ap/vim-css-color'
-
-" SCSS
+" This project contains the runtime files for Haml, Sass, and SCSS that ship with Vim. 
+" You only need it if you want the very latest updates.
+" Case: Highligh class html ( '.abcxyz') in scss file
+" Note: Đặt trên plug scss-syntax.vim
+Plug 'tpope/vim-haml'
 Plug 'cakebaker/scss-syntax.vim'
 
 " Liquid
