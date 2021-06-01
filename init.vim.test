@@ -90,6 +90,7 @@ Plug 'easymotion/vim-easymotion'
 " Git
 Plug 'airblade/vim-gitgutter'
 Plug 'apzelos/blamer.nvim'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Terminal
 Plug 'voldikss/vim-floaterm'
