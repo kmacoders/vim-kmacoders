@@ -1,19 +1,12 @@
-" vim-bootstrap 2021-05-18 07:16:45
-
-"*****************************************************************************
-"" Vim-Plug core
-"*****************************************************************************
+" ======================================================================================
+" Vim-Plug core | Tu dong install Vim Plug neu chua co
+" ======================================================================================
 let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
 if has('win32')&&!has('win64')
   let curl_exists=expand('C:\Windows\Sysnative\curl.exe')
 else
   let curl_exists=expand('curl')
 endif
-
-let g:vim_bootstrap_langs = "html,javascript,typescript"
-let g:vim_bootstrap_editor = "nvim"				" nvim or vim
-let g:vim_bootstrap_theme = "dracula"
-let g:vim_bootstrap_frams = "svelte,vuejs"
 
 if !filereadable(vimplug_exists)
   if !executable(curl_exists)
@@ -28,163 +21,144 @@ if !filereadable(vimplug_exists)
   autocmd VimEnter * PlugInstall
 endif
 
-" Required:
+
+" ======================================================================================
+" Plug install packages
+" ======================================================================================
+" Required: Chi dinh 1 thu muc cho cac plugin {{Plug
 call plug#begin(expand('~/.config/nvim/plugged'))
 
-"*****************************************************************************
-"" Plug install packages
-"*****************************************************************************
+" Tab
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'airblade/vim-gitgutter'
-Plug 'vim-scripts/grep.vim'
-Plug 'vim-scripts/CSApprox'
-Plug 'Raimondi/delimitMate'
-Plug 'majutsushi/tagbar'
-Plug 'dense-analysis/ale'
-Plug 'Yggdroot/indentLine'
-Plug 'editor-bootstrap/vim-bootstrap-updater'
-Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
-Plug 'dracula/vim', { 'as': 'dracula' }
-" kmacoders
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Tao icon cho nerdtree
+Plug 'ryanoasis/vim-devicons'
+" Color cho icon cua vim-devicons
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+" Theme
+Plug 'dracula/vim'
+
+" Editor Config
 Plug 'editorconfig/editorconfig-vim'
-Plug 'tpope/vim-commentary'
-" kmacoders: git lens for vim
-Plug 'apzelos/blamer.nvim'
-" Mo terminal ngay tren vim
-Plug 'voldikss/vim-floaterm'
-Plug 'easymotion/vim-easymotion'
+
+" Typescript
+Plug 'herringtondarkholme/yats.vim'
+
+" Vue
+Plug 'posva/vim-vue'
+
+" CSS | SCSS
+Plug 'hail2u/vim-css3-syntax'
+" Color cho các mã màu
+Plug 'ap/vim-css-color'
+" This project contains the runtime files for Haml, Sass, and SCSS that ship with Vim. 
+" You only need it if you want the very latest updates.
+" Case: Highligh class html ( '.abcxyz') in scss file
+" Note: Đặt trên plug scss-syntax.vim
+Plug 'tpope/vim-haml'
+Plug 'cakebaker/scss-syntax.vim'
+
+" Liquid
 Plug 'tpope/vim-liquid'
 
+" All svg html php ...
+Plug 'sheerun/vim-polyglot'
 
-if isdirectory('/usr/local/opt/fzf')
-  Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
-else
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-  Plug 'junegunn/fzf.vim'
-endif
-let g:make = 'gmake'
-if exists('make')
-        let g:make = 'make'
-endif
-Plug 'Shougo/vimproc.vim', {'do': g:make}
-
-"" Vim-Session
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-session'
-
-"" Snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-
-"*****************************************************************************
-"" Custom bundles
-"*****************************************************************************
-
-" html
-"" HTML Bundle
-Plug 'hail2u/vim-css3-syntax'
-Plug 'gko/vim-coloresque'
-Plug 'tpope/vim-haml'
+" Emmet
 Plug 'mattn/emmet-vim'
 
+" Commnent
+Plug 'tpope/vim-commentary'
 
-" javascript
-"" Javascript Bundle
-Plug 'jelera/vim-javascript-syntax'
+" Vim Airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
+"Coc ( Tu dong cap nhat extension voi #util#install )
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install() } }
 
-" svelte
-Plug 'leafOfTree/vim-svelte-plugin'
+" Searching
+Plug 'vim-scripts/grep.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'kqito/vim-easy-replace'
 
+" Quick move
+Plug 'easymotion/vim-easymotion'
 
-" typescript
-Plug 'leafgarland/typescript-vim'
-Plug 'HerringtonDarkholme/yats.vim'
+" Git
+Plug 'airblade/vim-gitgutter'
+Plug 'apzelos/blamer.nvim'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
+" Terminal
+Plug 'voldikss/vim-floaterm'
 
-" vuejs
-Plug 'posva/vim-vue'
-Plug 'leafOfTree/vim-vue-plugin'
+" IdentLine
+Plug 'Yggdroot/indentLine'
 
+" Auto close tag
+Plug 'Raimondi/delimitMate'
 
+" Linting
+Plug 'dense-analysis/ale'
 
-"*****************************************************************************
-"*****************************************************************************
+"" Snippets
+" Track the engine.
+Plug 'SirVer/ultisnips'
+" Snippets are separated from the engine. Add this if you want them:
+Plug 'honza/vim-snippets'
 
-"" Include user's extra bundle
-if filereadable(expand("~/.config/nvim/local_bundles.vim"))
-  source ~/.config/nvim/local_bundles.vim
-endif
-
+" Initialize plugin system Plug}}
 call plug#end()
 
-" Required:
-filetype plugin indent on
+
+" ======================================================================================
+" Mapping
+" ======================================================================================
+
+" Double j to Normal Mode
+inoremap jj <Esc>
+
+" Move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-l> <C-W>l
+map <C-h> <C-W>h
+
+noremap <Left> :echoe "Use h"<CR>
+noremap <Right> :echoe "Use l"<CR>
+noremap <Up> :echoe "Use k"<CR>
+noremap <Down> :echoe "Use j"<CR>
+
+" Key binding ---------
+" GÁN LẠI CHO NÚT LEADER = SPACE
+let mapleader=" "
+
+" Split
+noremap <Leader>l :vsplit<CR>
+noremap <Leader>h :split<CR>
+
+" Fzf
+noremap af :Files<CR>
+
+" Grep, Silver Search
+noremap aw :Ag<CR>
+
+" No hight light
+noremap nh :nohl<CR>
 
 
-"*****************************************************************************
-"" Basic Setup
-"*****************************************************************************"
-"" Encoding
-set encoding=utf-8
-set fileencoding=utf-8
-set fileencodings=utf-8
+" ======================================================================================
+" kmacoders Settings
+" ======================================================================================
 
-
-"" Fix backspace indent
-set backspace=indent,eol,start
-
-"" Map leader to ,
-let mapleader=','
-
-"" Enable hidden buffers
-set hidden
-
-"" Searching
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
-
-set fileformats=unix,dos,mac
-
-if exists('$SHELL')
-    set shell=$SHELL
-else
-    set shell=/bin/sh
-endif
-
-" session management
-let g:session_directory = "~/.config/nvim/session"
-let g:session_autoload = "no"
-let g:session_autosave = "no"
-let g:session_command_aliases = 1
-
-
-"*****************************************************************************
-" SETTINGS ( kmacoders )
-"*****************************************************************************
 " Enable mouse use in all modes ( bật chuột )
 set mouse=a
 " turn relative line numbers on ( chuyển hệ thước về relative, dòng hiện tại là số 0)
 :set relativenumber
 :set rnu
-
-"" Tabs. May be overridden by autocmd rules
-" The width of a TAB is set to 2.
-" Still it is a \t. It is just that
-" Vim will interpret it to be having
-" a width of 2.
-set tabstop=2
-set shiftwidth=2    " Indents will have a width of 2
-set softtabstop=2   " Sets the number of columns for a TAB
-set expandtab       " Expand TABs to spaces
 
 "Copy từ VIM ra ngoài Clipboard, mặc định VIM chỉ lưu trong Register luc yank
 set clipboard=unnamedplus
@@ -197,145 +171,52 @@ set autowrite
 set autoindent
 set smartindent
 
-"Bật syntax
-syntax on
+" ======================================================================================
+" General Settings
+" ======================================================================================
+set termguicolors
+set foldmethod=marker
 
-" Tự động bật blamer ( git lens ) khi start vim | delay show msg là 2s
-let g:blamer_enabled = 1
-let g:blamer_delay = 2000
+" Di chuot trong vim
+set mouse=a 
 
-" Cho phép modifier nertree, terminal in vim
-" Link: https://stackoverflow.com/questions/5745506/vim-modifiable-is-off
-:set modifiable
-
-" Chuyển dạng khác của con trỏ khi sang Insert Mode
-" Link: https://stackoverflow.com/questions/6488683/how-do-i-change-the-cursor-between-normal-and-insert-modes-in-vim
-set guicursor+=n-v-c:blinkon0
-
-" Searching
-" Cài grep.vim rồi cài Silver Searcher ( khác nhau với từng OS )
-" Sau đó import câu lệnh bên dưới vào
-" https://github.com/ggreer/the_silver_searcher
-let g:ackprg = 'ag --vimgrep'
-
-
-"--------------------------------------------------------------------------
-" MAP KEY kmacoders
-"----------------------------------------------------------------------------
-
-"SAVE FILE
-" Double j to Normal Mode
-inoremap jj <Esc>
-
-" Move between windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-l> <C-W>l
-map <C-h> <C-W>h
-
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
-
-" Key binding ---------
-" GÁN LẠI CHO NÚT LEADER = SPACE
-let mapleader=" "
-
-" Split
-nnoremap <Leader>l :vsplit<CR>
-nnoremap <Leader>h :split<CR>
-
-" Comments ( gc )
-
-" Search map ( :Ag )
-
-"*****************************************************************************
-"" Visual Settings
-"*****************************************************************************
-syntax on
-set ruler
+set nowrap
 set number
 
-let no_buffers_menu=1
-colorscheme dracula
-set mousemodel=popup
+" utf-8 by default in files
+set enc=utf-8	
+
+" show status bar always
+set ls=2
+
+" highlight search	
+set hlsearch	
+set showtabline=0
+highlight LineNr ctermfg=gray
+
+" popup autocomplete menu color
+highlight Pmenu ctermbg=gray guibg=gray 
+
+" Tắt các thể loại files backup, swap, khá là annoy và không cần thiết vì mình đã dùng git rồi
+set nobackup
+set nowb
+set noswapfile
+set backupdir=~/tmp,/tmp
+set backupcopy=yes
+set backupskip=/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*
+set directory=/tmp
+
+" ======================================================================================
+" Plug Config
+" ======================================================================================
+
+" Theme --
 set t_Co=256
-set guioptions=egmrti
-set gfn=Monospace\ 10
+highlight Normal guibg=black guifg=white
+set background=dark
+color dracula
 
-if has("gui_running")
-  if has("gui_mac") || has("gui_macvim")
-    set guifont=Menlo:h12
-    set transparency=7
-  endif
-else
-  let g:CSApprox_loaded = 1
-
-  " IndentLine
-  let g:indentLine_enabled = 1
-  let g:indentLine_concealcursor = 0
-  let g:indentLine_char = '┆'
-  let g:indentLine_faster = 1
-
-  
-endif
-
-
-
-"" Disable the blinking cursor.
-set gcr=a:blinkon0
-
-au TermEnter * setlocal scrolloff=0
-au TermLeave * setlocal scrolloff=3
-
-
-"" Status bar
-set laststatus=2
-
-"" Use modeline overrides
-set modeline
-set modelines=10
-
-set title
-set titleold="Terminal"
-set titlestring=%F
-
-set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
-
-" Search mappings: These will make it so that going to the next one in a
-" search will center on the line it's found in.
-nnoremap n nzzzv
-nnoremap N Nzzzv
-
-if exists("*fugitive#statusline")
-  set statusline+=%{fugitive#statusline()}
-endif
-
-" vim-airline
-let g:airline_theme = 'powerlineish'
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#ale#enabled = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tagbar#enabled = 1
-let g:airline_skip_empty_sections = 1
-
-"*****************************************************************************
-"" Abbreviations
-"*****************************************************************************
-"" no one is really happy until you have this shortcuts
-cnoreabbrev W! w!
-cnoreabbrev Q! q!
-cnoreabbrev Qall! qall!
-cnoreabbrev Wq wq
-cnoreabbrev Wa wa
-cnoreabbrev wQ wq
-cnoreabbrev WQ wq
-cnoreabbrev W w
-cnoreabbrev Q q
-cnoreabbrev Qall qall
-
-"" NERDTree configuration
+" nerdtree | vim-nerdtree-tabs
 let g:NERDTreeChDirMode=2
 let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
 let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
@@ -347,265 +228,79 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 nnoremap <silent> <F2> :NERDTreeFind<CR>
 nnoremap <silent> <F3> :NERDTreeToggle<CR>
 
-" grep.vim
-nnoremap <silent> <leader>f :Rgrep<CR>
-let Grep_Default_Options = '-IR'
-let Grep_Skip_Files = '*.log *.db'
-let Grep_Skip_Dirs = '.git node_modules'
+" Grep --
+" Cài grep.vim rồi cài Silver Searcher ( khác nhau với từng OS )
+" Sau đó import câu lệnh bên dưới vào
+" https://github.com/ggreer/the_silver_searcher
+let g:ackprg = 'ag --vimgrep'
 
-" terminal emulation
-nnoremap <silent> <leader>sh :terminal<CR>
+" Vim vue --
+" fix sync in vue files
+autocmd FileType vue syntax sync fromstart
 
-
-"*****************************************************************************
-"" Commands
-"*****************************************************************************
-" remove trailing whitespaces
-command! FixWhitespace :%s/\s\+$//e
-
-"*****************************************************************************
-"" Functions
-"*****************************************************************************
-if !exists('*s:setupWrapping')
-  function s:setupWrapping()
-    set wrap
-    set wm=2
-    set textwidth=79
-  endfunction
-endif
-
-"*****************************************************************************
-"" Autocmd Rules
-"*****************************************************************************
-"" The PC is fast enough, do syntax highlight syncing from start unless 200 lines
-augroup vimrc-sync-fromstart
-  autocmd!
-  autocmd BufEnter * :syntax sync maxlines=200
-augroup END
-
-"" Remember cursor position
-augroup vimrc-remember-cursor-position
-  autocmd!
-  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-augroup END
-
-"" txt
-augroup vimrc-wrapping
-  autocmd!
-  autocmd BufRead,BufNewFile *.txt call s:setupWrapping()
-augroup END
-
-"" make/cmake
-augroup vimrc-make-cmake
-  autocmd!
-  autocmd FileType make setlocal noexpandtab
-  autocmd BufNewFile,BufRead CMakeLists.txt setlocal filetype=cmake
-augroup END
-
-set autoread
-
-"*****************************************************************************
-"" Mappings
-"*****************************************************************************
-
-"" Git
-noremap <Leader>ga :Gwrite<CR>
-noremap <Leader>gc :Gcommit<CR>
-noremap <Leader>gsh :Gpush<CR>
-noremap <Leader>gll :Gpull<CR>
-noremap <Leader>gs :Gstatus<CR>
-noremap <Leader>gb :Gblame<CR>
-noremap <Leader>gd :Gvdiff<CR>
-noremap <Leader>gr :Gremove<CR>
-
-" session management
-nnoremap <leader>so :OpenSession<Space>
-nnoremap <leader>ss :SaveSession<Space>
-nnoremap <leader>sd :DeleteSession<CR>
-nnoremap <leader>sc :CloseSession<CR>
-
-"" Tabs
-nnoremap <Tab> gt
-nnoremap <S-Tab> gT
-nnoremap <silent> <S-t> :tabnew<CR>
-
-"" Set working directory
-nnoremap <leader>. :lcd %:p:h<CR>
-
-"" Opens an edit command with the path of the currently edited file filled in
-noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-
-"" Opens a tab edit command with the path of the currently edited file filled
-noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
-
-"" fzf.vim
-set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
-let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
-
-" The Silver Searcher
-if executable('ag')
-  let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
-  set grepprg=ag\ --nogroup\ --nocolor
-endif
-
-" ripgrep
-if executable('rg')
-  let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
-  set grepprg=rg\ --vimgrep
-  command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
-endif
-
-cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
-nnoremap <silent> <leader>b :Buffers<CR>
-nnoremap <silent> <leader>e :FZF -m<CR>
-"Recovery commands from history through FZF
-nmap <leader>y :History:<CR>
 
 " snippets
+" click 'tab' de show snipet ( vd: shopify snipet... )
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 let g:UltiSnipsEditSplit="vertical"
 
-" ale
+" Git Blamer --
+" Tự động bật blamer ( git lens ) khi start vim | delay show msg là 2s
+let g:blamer_enabled = 1
+let g:blamer_delay = 2000
+
+" Gitgutter
+" Mau cua add, change, remove line code
+highlight GitGutterAdd    guifg=#009900 ctermfg=2
+highlight GitGutterChange guifg=#bbbb00 ctermfg=3
+highlight GitGutterDelete guifg=#ff2222 ctermfg=1
+
+" vim-nerdtree-syntax-highlight
+" Custom 2 màu đặc biệt
+let s:kmacodersAppleFolderColor = "78cdf4"
+let s:kmacodersShopifyIconColor = "96BF48"
+" Màu của các folder không match rule
+let g:WebDevIconsDefaultFolderSymbolColor = s:kmacodersAppleFolderColor
+" Màu của các file không match rule ( nhất là .liquid của Shopify )
+let g:WebDevIconsDefaultFileSymbolColor = s:kmacodersShopifyIconColor
+" Giảm độ lag khi sử dụng plug tô màu icon này
+" Limit những cái ít phổ biến
+let g:NERDTreeLimitedSyntax = 1
+" Giới hạn những .extensions được tô màu
+let g:NERDTreeSyntaxDisableDefaultExtensions = 1
+let g:NERDTreeSyntaxDisableDefaultExactMatches = 1
+let g:NERDTreeSyntaxDisableDefaultPatternMatches = 1
+" Bật màu với những .extension này
+let g:NERDTreeSyntaxEnabledExtensions = ['js', 'ts', 'vue', 'svelte', 'liquid', 'html', 'css', 'scss', 'svg', 'png', 'yml', 'json', 'md']
+let g:NERDTreeSyntaxEnabledExactMatches = ['node_modules', 'favicon.ico'] " enabled exact matches with default colors
+" Tắt nền con trỏ mặc định trên nerdtree
+let g:NERDTreeHighlightCursorline = 0
+
+" Ale : Linting ---------
+" Fix file voi prettier roi den eslint
+let b:ale_fixers = ['prettier', 'eslint']
 let g:ale_linters = {}
 
-" Tagbar
-nmap <silent> <F4> :TagbarToggle<CR>
-let g:tagbar_autofocus = 1
+" IndentLine ( custom line keo tu open tag -> close tag )
+let g:indentLine_enabled = 1
+let g:indentLine_concealcursor = 0
+let g:indentLine_char = '┆'
+let g:indentLine_faster = 1
 
-" Disable visualbell
-set noerrorbells visualbell t_vb=
-if has('autocmd')
-  autocmd GUIEnter * set visualbell t_vb=
-endif
+" Vim Commnetary --
+" gc to commnent
 
-"" Copy/Paste/Cut
-if has('unnamedplus')
-  set clipboard=unnamed,unnamedplus
-endif
+" Vim easy replace
+" <Leader>ra
 
-noremap YY "+y<CR>
-noremap <leader>p "+gP<CR>
-noremap XX "+x<CR>
+" FZF - search ngoai tru node_modules | dist
+set wildmode=list:longest,list:full
+set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
+let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
 
-if has('macunix')
-  " pbcopy for OSX copy/paste
-  vmap <C-x> :!pbcopy<CR>
-  vmap <C-c> :w !pbcopy<CR><CR>
-endif
-
-"" Buffer nav
-noremap <leader>z :bp<CR>
-noremap <leader>q :bp<CR>
-noremap <leader>x :bn<CR>
-noremap <leader>w :bn<CR>
-
-"" Close buffer
-noremap <leader>c :bd<CR>
-
-"" Clean search (highlight)
-nnoremap <silent> <leader><space> :noh<cr>
-
-"" Vmap for maintain Visual Mode after shifting > and <
-vmap < <gv
-vmap > >gv
-
-"" Move visual block
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
-
-"" Open current line on GitHub
-nnoremap <Leader>o :.Gbrowse<CR>
-
-"*****************************************************************************
-"" Custom configs
-"*****************************************************************************
-
-" html
-" for html files, 2 spaces
-autocmd Filetype html setlocal ts=2 sw=2 expandtab
-
-
-" javascript
-let g:javascript_enable_domhtmlcss = 1
-
-" vim-javascript
-augroup vimrc-javascript
-  autocmd!
-  autocmd FileType javascript setl tabstop=2|setl shiftwidth=2|setl expandtab softtabstop=2
-augroup END
-
-
-" typescript
-let g:yats_host_keyword = 1
-
-
-
-" svelte
-let g:vim_svelte_plugin_load_full_syntax = 1
-
-
-" vuejs
-" vim vue
-let g:vue_disable_pre_processors=1
-" vim vue plugin
-let g:vim_vue_plugin_load_full_syntax = 1
-
-
-"*****************************************************************************
-"*****************************************************************************
-
-"" Include user's local vim config
-if filereadable(expand("~/.config/nvim/local_init.vim"))
-  source ~/.config/nvim/local_init.vim
-endif
-
-"*****************************************************************************
-"" Convenience variables
-"*****************************************************************************
-
-" vim-airline
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-
-if !exists('g:airline_powerline_fonts')
-  let g:airline#extensions#tabline#left_sep = ' '
-  let g:airline#extensions#tabline#left_alt_sep = '|'
-  let g:airline_left_sep          = '▶'
-  let g:airline_left_alt_sep      = '»'
-  let g:airline_right_sep         = '◀'
-  let g:airline_right_alt_sep     = '«'
-  let g:airline#extensions#branch#prefix     = '⤴' "➔, ➥, ⎇
-  let g:airline#extensions#readonly#symbol   = '⊘'
-  let g:airline#extensions#linecolumn#prefix = '¶'
-  let g:airline#extensions#paste#symbol      = 'ρ'
-  let g:airline_symbols.linenr    = '␊'
-  let g:airline_symbols.branch    = '⎇'
-  let g:airline_symbols.paste     = 'ρ'
-  let g:airline_symbols.paste     = 'Þ'
-  let g:airline_symbols.paste     = '∥'
-  let g:airline_symbols.whitespace = 'Ξ'
-else
-  let g:airline#extensions#tabline#left_sep = ''
-  let g:airline#extensions#tabline#left_alt_sep = ''
-
-  " powerline symbols
-  let g:airline_left_sep = ''
-  let g:airline_left_alt_sep = ''
-  let g:airline_right_sep = ''
-  let g:airline_right_alt_sep = ''
-  let g:airline_symbols.branch = ''
-  let g:airline_symbols.readonly = ''
-  let g:airline_symbols.linenr = ''
-endif
-
-" ----------------------------------------------------------------------------------
-" COC.NVIM DEFAULT SETTINGS
-" https://github.com/neoclide/coc.nvim
-" ----------------------------------------------------------------------------------
+" Coc Default Settings -- 
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
 set encoding=utf-8
@@ -772,10 +467,7 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-"------------------------------------------------------------------------------------------
-"COC GLOBAL EXTENSION
-"-----------------------------------------------------------------------------------------
-
+" Coc global extenstion --
 let g:coc_global_extensions = [
       \'coc-markdownlint',
       \'coc-highlight',
@@ -790,30 +482,9 @@ let g:coc_global_extensions = [
       \'coc-html',
       \]
 
-
-"---------------------------------------------------------------------------------------------------
-" FLOATTERM SETTINGS
-"-------------------------------------------------------------------------------------------------
-" Configuration example
-let g:floaterm_keymap_new    = '<F6>'
-let g:floaterm_keymap_prev   = '<F7>'
-let g:floaterm_keymap_next   = '<F8>'
-let g:floaterm_keymap_toggle = '<F9>'
-let g:floaterm_keymap_kill = '<F10>'
-let g:floaterm_width = 0.8
-let g:floaterm_height = 0.8
-
-" Set floaterm window's background to black
-hi Floaterm guibg=black
-" Set floating window border line color to cyan, and background to orange
-hi FloatermBorder guibg=orange guifg=cyan
-
-
-"---------------------------------------------------------------------------------------------------
-" EASY MOTION SETTINGS
-"-------------------------------------------------------------------------------------------------
+" Easy motion ---------------------
 " <Leader>f{char} to move to {char}
-map  <Leader>f <Plug>(easymotion-bd-f)
+map  <Leader>f <Plug>(easymotion-bd-f)/W
 nmap <Leader>f <Plug>(easymotion-overwin-f)
 
 " s{char}{char} to move to {char}{char}
@@ -827,3 +498,16 @@ nmap <Leader>L <Plug>(easymotion-overwin-line)
 map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
 
+" Floaterm config ------------------
+let g:floaterm_keymap_new    = '<F6>'
+let g:floaterm_keymap_prev   = '<F7>'
+let g:floaterm_keymap_next   = '<F8>'
+let g:floaterm_keymap_toggle = '<F9>'
+let g:floaterm_keymap_kill = '<F10>'
+let g:floaterm_width = 0.8
+let g:floaterm_height = 0.8
+
+" Set floaterm window's background to black
+hi Floaterm guibg=black
+" Set floating window border line color to red, and background to white
+hi FloatermBorder guifg=DarkOrange1
