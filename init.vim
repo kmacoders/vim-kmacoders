@@ -48,6 +48,9 @@ Plug 'herringtondarkholme/yats.vim'
 " Vue
 Plug 'posva/vim-vue'
 
+" Svelte
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
+
 " CSS | SCSS
 Plug 'hail2u/vim-css3-syntax'
 " Color cho các mã màu
