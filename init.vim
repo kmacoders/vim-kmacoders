@@ -76,7 +76,7 @@ Plug 'tpope/vim-liquid'
 Plug 'mattn/emmet-vim'
 
 " Commnent
-Plug 'tpope/vim-commentary'
+Plug 'preservim/nerdcommenter'
 
 " Vim Airline
 Plug 'vim-airline/vim-airline'
@@ -248,7 +248,7 @@ autocmd FileType vue syntax sync fromstart
 " ( mặc định check hết coffee, haml, handlebars, less, pug, sass, scss, slm, stylus, typescript )
 let g:vue_pre_processors = 'detect_on_enter'
 
-" snippets
+" snippets --
 " click 'tab' de show snipet ( vd: shopify snipet... )
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
@@ -260,13 +260,13 @@ let g:UltiSnipsEditSplit="vertical"
 let g:blamer_enabled = 1
 let g:blamer_delay = 2000
 
-" Gitgutter
+" Gitgutter --
 " Mau cua add, change, remove line code
 highlight GitGutterAdd    guifg=#009900 ctermfg=2
 highlight GitGutterChange guifg=#bbbb00 ctermfg=3
 highlight GitGutterDelete guifg=#ff2222 ctermfg=1
 
-" vim-nerdtree-syntax-highlight
+" vim-nerdtree-syntax-highlight --
 " Custom 2 màu đặc biệt
 let s:kmacodersAppleFolderColor = "78cdf4"
 let s:kmacodersShopifyIconColor = "96BF48"
@@ -298,8 +298,29 @@ let g:indentLine_concealcursor = 0
 let g:indentLine_char = '┆'
 let g:indentLine_faster = 1
 
-" Vim Commnetary --
-" gc to commnent
+" NerdComment --
+" Leader+c+space to cmt
+" Nếu sử dụng NerdCommenter thì cmt sẽ  hiểu thành html, hooks này giúp fix lỗi cmt đó trong Vue
+" Hook này không có trong docs của NerdCommenter, mà ở trong docs của vim-vue
+let g:ft = ''
+function! NERDCommenter_before()
+  if &ft == 'vue'
+    let g:ft = 'vue'
+    let stack = synstack(line('.'), col('.'))
+    if len(stack) > 0
+      let syn = synIDattr((stack)[0], 'name')
+      if len(syn) > 0
+        exe 'setf ' . substitute(tolower(syn), '^vue_', '', '')
+      endif
+    endif
+  endif
+endfunction
+function! NERDCommenter_after()
+  if g:ft == 'vue'
+    setf vue
+    let g:ft = ''
+  endif
+endfunction
 
 " Vim easy replace
 " <Leader>ra
