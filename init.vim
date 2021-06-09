@@ -42,6 +42,13 @@ Plug 'dracula/vim'
 " Editor Config
 Plug 'editorconfig/editorconfig-vim'
 
+" Polygot
+" Giảm giật lag khi vào file .vue do conflig starup với vim-vue
+" https://github.com/posva/vim-vue/issues/95
+let g:polyglot_disabled = ['jsx', 'tsx', 'js', 'ts', 'vue']
+" All svg html php ...
+Plug 'sheerun/vim-polyglot'
+
 " Typescript
 Plug 'herringtondarkholme/yats.vim'
 
@@ -64,9 +71,6 @@ Plug 'cakebaker/scss-syntax.vim'
 
 " Liquid
 Plug 'tpope/vim-liquid'
-
-" All svg html php ...
-Plug 'sheerun/vim-polyglot'
 
 " Emmet
 Plug 'mattn/emmet-vim'
@@ -240,12 +244,6 @@ let g:ackprg = 'ag --vimgrep'
 " Vim vue --
 " fix sync in vue files
 autocmd FileType vue syntax sync fromstart
-
-" Polygot
-" Giảm giật lag khi vào file .vue do conflig starup với vim-vue
-" https://github.com/posva/vim-vue/issues/95
-let g:polyglot_disabled = ['vue']
-
 
 " snippets
 " click 'tab' de show snipet ( vd: shopify snipet... )
