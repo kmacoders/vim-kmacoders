@@ -241,6 +241,11 @@ let g:ackprg = 'ag --vimgrep'
 " fix sync in vue files
 autocmd FileType vue syntax sync fromstart
 
+" Polygot
+" Giảm giật lag khi vào file .vue do conflig starup với vim-vue
+" https://github.com/posva/vim-vue/issues/95
+let g:polyglot_disabled = ['vue']
+
 
 " snippets
 " click 'tab' de show snipet ( vd: shopify snipet... )
