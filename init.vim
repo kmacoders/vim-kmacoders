@@ -72,9 +72,6 @@ Plug 'cakebaker/scss-syntax.vim'
 " Liquid
 Plug 'tpope/vim-liquid'
 
-" Emmet
-Plug 'mattn/emmet-vim'
-
 " Commnent
 Plug 'preservim/nerdcommenter'
 
@@ -510,6 +507,9 @@ let g:coc_global_extensions = [
       \'coc-git',
       \'coc-css',
       \'coc-html',
+      \'coc-pairs',
+      \'coc-emmet',
+      \'coc-svelte',
       \]
 
 " Easy motion ---------------------
