@@ -1,0 +1,8 @@
+{
+  "emmet.includeLanguages": {
+    "liquid": "html",
+    "vue-html": "html",
+    "vue": "html",
+    "svelte": "html"
+  }
+}
