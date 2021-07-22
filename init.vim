@@ -210,6 +210,12 @@ set backupcopy=yes
 set backupskip=/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*
 set directory=/tmp
 
+" Fold ( za de fold, unfold )
+set foldmethod=indent   
+set foldnestmax=10
+set nofoldenable
+set foldlevel=2
+
 " ======================================================================================
 " Plug Config
 " ======================================================================================
