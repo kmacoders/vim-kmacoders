@@ -79,8 +79,8 @@ Plug 'preservim/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-"Coc ( Tu dong cap nhat extension voi #util#install )
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install() } }
+" Use release branch (recommend)
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Searching
 Plug 'vim-scripts/grep.vim'
