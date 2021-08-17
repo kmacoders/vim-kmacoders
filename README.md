@@ -38,7 +38,10 @@ nvim
 ```
 - **Install The Silver Search**
 - **Install Nerd Font**
-
+- **Install Python 3 Provider ( Optional )**
+```jsx
+python3 -m pip install --user --upgrade pynvim
+```
 
 # How to use
 - [My settings and configs](https://github.com/kmacoders/vim-kmacoders/blob/master/docs/MySettings.md)
