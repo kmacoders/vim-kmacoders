@@ -43,7 +43,7 @@ nvim
 python3 -m pip install --user --upgrade pynvim
 ```
 [Source docs Provider](https://neovim.io/doc/user/provider.html)
--**Install Theme Check ( Shopify Dev )**
+- **Install Theme Check ( Shopify Dev )**
 ```js
 // for Mac
 brew tap shopify/shopify
