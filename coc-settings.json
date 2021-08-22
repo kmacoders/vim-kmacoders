@@ -4,5 +4,16 @@
     "vue-html": "html",
     "vue": "html",
     "svelte": "html"
+  },
+  "languageserver": {
+    "liquid": {
+      "command": "theme-check-language-server",
+      "filetypes": [
+        "liquid"
+      ],
+      "rootPatterns": [
+        ".theme-check.yml"
+      ]
+    }
   }
 }
