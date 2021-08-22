@@ -15,14 +15,14 @@
 - **Install Neovim**
 1. Install Neovim
 
-```jsx
+```js
 // On Manjaro Linux
 sudo pacman install neovim 
 ```
 
 2. In root folder
 
-```jsx
+```js
 cd ./.config
 mkdir nvim
 
@@ -32,17 +32,23 @@ mkdir nvim
 
 4. Open terminal and run
 
-```jsx
+```js
 nvim
 :PlugInstall
 ```
 - **Install The Silver Search**
 - **Install Nerd Font**
 - **Install Python 3 Provider ( Optional )**
-```jsx
+```js
 python3 -m pip install --user --upgrade pynvim
 ```
-[Source docs Provider](https://neovim.io/doc/user/provider.html)  
+[Source docs Provider](https://neovim.io/doc/user/provider.html)
+-**Install Theme Check ( Shopify Dev )**
+```js
+// for Mac
+brew tap shopify/shopify
+brew install theme-check
+```
 
 # How to use
 - [My settings and configs](https://github.com/kmacoders/vim-kmacoders/blob/master/docs/MySettings.md)
