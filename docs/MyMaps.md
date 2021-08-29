@@ -15,7 +15,13 @@
 | **`Leader + ra`** | Find and replace |
 | **`Leader + w`** | Easymotion |
 
-## Remaps Barbar
+## Remap Split Window
+| Map | Function |
+|--|--|
+| **`Leader + l`** | Horizontal split |
+| **`Leader + j`** | Vertical split |
+
+## Remap Barbar ( `prefix: b`)
 | Map | Function |
 |--|--|
 |**`bh`**| Switch to prev (h) tab bar |
