@@ -75,7 +75,10 @@ Plug 'tpope/vim-liquid'
 " Commnent
 Plug 'preservim/nerdcommenter'
 
-" Vim Airline
+" Navbar ( Tab bar like VSCode ) nb01
+Plug 'romgrk/barbar.nvim'
+
+" Vim Airline ( Bottom bar )
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -562,3 +565,27 @@ let g:floaterm_height = 0.8
 hi Floaterm guibg=black
 " Set floating window border line color to red, and background to white
 hi FloatermBorder guifg=DarkOrange1
+
+" Barbar ( tab bar like VSCode ) nb01 -----------------
+" Move to previous/next
+nnoremap bh :BufferPrevious<CR>
+nnoremap bl :BufferNext<CR>
+
+" Goto buffer in position...
+nnoremap b1 :BufferGoto 1<CR>
+nnoremap b2 :BufferGoto 2<CR>
+nnoremap b3 :BufferGoto 3<CR>
+nnoremap b4 :BufferGoto 4<CR>
+nnoremap b5 :BufferGoto 5<CR>
+nnoremap b6 :BufferGoto 6<CR>
+nnoremap b7 :BufferGoto 7<CR>
+nnoremap b8 :BufferGoto 8<CR>
+nnoremap b9 :BufferLast<CR>
+
+" Close buffer
+nnoremap bc :BufferClose<CR>
+" Close all bar
+nnoremap bca :BufferCloseAllButCurrent<CR>
+
+" Magic buffer-picking mode
+nnoremap bf :BufferPick<CR>
