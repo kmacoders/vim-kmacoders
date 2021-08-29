@@ -247,25 +247,6 @@ nnoremap <silent> <F3> :NERDTreeToggle<CR>
 " https://github.com/ggreer/the_silver_searcher
 let g:ackprg = 'ag --vimgrep'
 
-" Vim vue --
-" fix sync in vue files
-autocmd FileType vue syntax sync fromstart
-" Chỉ tải các preprocessor cần thiết khi mở .vue 
-" ( mặc định check hết coffee, haml, handlebars, less, pug, sass, scss, slm, stylus, typescript )
-let g:vue_pre_processors = 'detect_on_enter'
-
-" snippets --
-" click 'tab' de show snipet ( vd: shopify snipet... )
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-let g:UltiSnipsEditSplit="vertical"
-
-" Git Blamer --
-" Tự động bật blamer ( git lens ) khi start vim | delay show msg là 2s
-let g:blamer_enabled = 1
-let g:blamer_delay = 2000
-
 " =============== Personalized Settings =============
 for fpath in split(globpath('~/.config/nvim/settings', '*.vim'), '\n')
   exe 'source' fpath
