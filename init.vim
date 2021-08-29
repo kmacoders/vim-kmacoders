@@ -75,7 +75,7 @@ Plug 'tpope/vim-liquid'
 " Commnent
 Plug 'preservim/nerdcommenter'
 
-" Navbar ( Tab bar like VSCode ) nb01
+" Navbar ( Tab bar like VSCode )
 Plug 'romgrk/barbar.nvim'
 
 " Vim Airline ( Bottom bar )
@@ -548,7 +548,7 @@ hi Floaterm guibg=black
 " Set floating window border line color to red, and background to white
 hi FloatermBorder guifg=DarkOrange1
 
-" Barbar ( tab bar like VSCode ) nb01 -----------------
+" Barbar ( tab bar like VSCode ) -----------------
 " Move to previous/next
 nnoremap bh :BufferPrevious<CR>
 nnoremap bl :BufferNext<CR>
@@ -572,4 +572,11 @@ nnoremap bca :BufferCloseAllButCurrent<CR>
 " Magic buffer-picking mode
 nnoremap bf :BufferPick<CR>
 
-
+" Barbar settings override
+let bufferline = get(g:, 'bufferline', {})
+" Tắt animation của tab bar cho mượt :v
+let bufferline.animation = v:false
+" Ẩn nếu chỉ có 1 tab bar 
+let bufferline.auto_hide = v:true
+" Không dùng icon
+let bufferline.icons = v:false
