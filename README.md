@@ -51,6 +51,7 @@ brew install theme-check
 ```
 
 # How to use
-- [My settings and configs](https://github.com/kmacoders/vim-kmacoders/blob/master/docs/MySettings.md)
 - [My maps](https://github.com/kmacoders/vim-kmacoders/blob/master/docs/MyMaps.md)
+- [My notes](https://github.com/kmacoders/vim-kmacoders/blob/master/docs/MyNotes.md)
+- [My settings and configs](https://github.com/kmacoders/vim-kmacoders/blob/master/docs/MySettings.md)
 - [Quick tuts with Vim](https://github.com/kmacoders/vim-kmacoders/blob/master/docs/QuickTutorial.md)
