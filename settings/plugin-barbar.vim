@@ -1,26 +1,26 @@
 " Barbar ( tab bar like VSCode ) -----------------
 " Move to previous/next
-nnoremap bh :BufferPrevious<CR>
-nnoremap bl :BufferNext<CR>
+nnoremap th :BufferPrevious<CR>
+nnoremap tl :BufferNext<CR>
 
 " Goto buffer in position...
-nnoremap b1 :BufferGoto 1<CR>
-nnoremap b2 :BufferGoto 2<CR>
-nnoremap b3 :BufferGoto 3<CR>
-nnoremap b4 :BufferGoto 4<CR>
-nnoremap b5 :BufferGoto 5<CR>
-nnoremap b6 :BufferGoto 6<CR>
-nnoremap b7 :BufferGoto 7<CR>
-nnoremap b8 :BufferGoto 8<CR>
-nnoremap b9 :BufferLast<CR>
+nnoremap t1 :BufferGoto 1<CR>
+nnoremap t2 :BufferGoto 2<CR>
+nnoremap t3 :BufferGoto 3<CR>
+nnoremap t4 :BufferGoto 4<CR>
+nnoremap t5 :BufferGoto 5<CR>
+nnoremap t6 :BufferGoto 6<CR>
+nnoremap t7 :BufferGoto 7<CR>
+nnoremap t8 :BufferGoto 8<CR>
+nnoremap t9 :BufferLast<CR>
 
 " Close buffer
-nnoremap bc :BufferClose<CR>
+nnoremap tc :BufferClose<CR>
 " Close all bar
-nnoremap bca :BufferCloseAllButCurrent<CR>
+nnoremap tca :BufferCloseAllButCurrent<CR>
 
 " Magic buffer-picking mode
-nnoremap bf :BufferPick<CR>
+nnoremap tf :BufferPick<CR>
 
 " Barbar settings override
 let bufferline = get(g:, 'bufferline', {})

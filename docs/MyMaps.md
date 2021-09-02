@@ -21,20 +21,20 @@
 | **`Leader + l`** | Horizontal split |
 | **`Leader + j`** | Vertical split |
 
-## Remap Barbar ( `prefix: b`)
+## Remap Barbar ( `prefix: t ( tab )`)
 | Map | Function |
 |--|--|
-|**`bh`**| Switch to prev (h) tab bar |
-|**`bl`**| Switch to next (l) tab bar |
-|**`bc`**| Close current tab bar |
-|**`bca`**| Close all tab bar ( except current ) |
-|**`bf`**| Pick tab bar by first letter name ( like Easy Motion Plug ) |
-|**`b1`**| Switch to tab 1 |
-|**`b2`**| Switch to tab 2 |
-|**`b3`**| Switch to tab 3 |
-|**`b4`**| Switch to tab 4 |
-|**`b5`**| Switch to tab 5 |
-|**`b6`**| Switch to tab 6 |
-|**`b7`**| Switch to tab 7 |
-|**`b8`**| Switch to tab 8 |
-|**`b9`**| Switch to last tab |
+|**`th`**| Switch to prev (h) tab bar |
+|**`tl`**| Switch to next (l) tab bar |
+|**`tc`**| Close current tab bar |
+|**`tca`**| Close all tab bar ( except current ) |
+|**`tf`**| Pick tab bar by first letter name ( like Easy Motion Plug ) |
+|**`t1`**| Switch to tab 1 |
+|**`t2`**| Switch to tab 2 |
+|**`t3`**| Switch to tab 3 |
+|**`t4`**| Switch to tab 4 |
+|**`t5`**| Switch to tab 5 |
+|**`t6`**| Switch to tab 6 |
+|**`t7`**| Switch to tab 7 |
+|**`t8`**| Switch to tab 8 |
+|**`t9`**| Switch to last tab |
