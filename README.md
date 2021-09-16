@@ -11,7 +11,7 @@
 **Internal terminal**
 ![enter image description here](./preview/image2.png)
 
-# How to install
+# How to install 
 - **Install Neovim**
 1. Install Neovim
 
