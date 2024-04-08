@@ -21,12 +21,3 @@ nnoremap tca :BufferCloseAllButCurrent<CR>
 
 " Magic buffer-picking mode
 nnoremap tf :BufferPick<CR>
-
-" Barbar settings override
-let bufferline = get(g:, 'bufferline', {})
-" Tắt animation của tab bar cho mượt :v
-let bufferline.animation = v:false
-" Ẩn nếu chỉ có 1 tab bar 
-let bufferline.auto_hide = v:true
-" Không dùng icon
-let bufferline.icons = v:false

@@ -76,6 +76,9 @@ Plug 'tpope/vim-liquid'
 Plug 'preservim/nerdcommenter'
 
 " TODO:  Navbar ( Tab bar like VSCode )
+Plug 'nvim-tree/nvim-web-devicons' " OPTIONAL: for file icons
+Plug 'lewis6991/gitsigns.nvim' " OPTIONAL: for git status
+Plug 'romgrk/barbar.nvim'
 
 " Vim Airline ( Bottom bar )
 Plug 'vim-airline/vim-airline'

@@ -15,5 +15,6 @@
         ".theme-check.yml"
       ]
     }
-  }
+  },
+  "svelte.enable-ts-plugin": false
 }
