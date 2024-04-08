@@ -52,6 +52,10 @@ Plug 'sheerun/vim-polyglot'
 " Typescript
 Plug 'herringtondarkholme/yats.vim'
 
+" React
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+
 " Vue
 Plug 'posva/vim-vue'
 

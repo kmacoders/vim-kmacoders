@@ -14,7 +14,7 @@ let g:NERDTreeSyntaxDisableDefaultExtensions = 1
 let g:NERDTreeSyntaxDisableDefaultExactMatches = 1
 let g:NERDTreeSyntaxDisableDefaultPatternMatches = 1
 " Bật màu với những .extension này
-let g:NERDTreeSyntaxEnabledExtensions = ['js', 'ts', 'vue', 'svelte', 'liquid', 'html', 'css', 'scss', 'svg', 'png', 'yml', 'json', 'md']
+let g:NERDTreeSyntaxEnabledExtensions = ['js', 'jsx', 'ts', 'tsx', 'vue', 'svelte', 'liquid', 'html', 'css', 'scss', 'svg', 'png', 'yml', 'json', 'md']
 let g:NERDTreeSyntaxEnabledExactMatches = ['node_modules', 'favicon.ico'] " enabled exact matches with default colors
 " Tắt nền con trỏ mặc định trên nerdtree
 let g:NERDTreeHighlightCursorline = 0
