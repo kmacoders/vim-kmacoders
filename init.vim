@@ -75,8 +75,7 @@ Plug 'tpope/vim-liquid'
 " Commnent
 Plug 'preservim/nerdcommenter'
 
-" Navbar ( Tab bar like VSCode )
-Plug 'romgrk/barbar.nvim'
+" TODO:  Navbar ( Tab bar like VSCode )
 
 " Vim Airline ( Bottom bar )
 Plug 'vim-airline/vim-airline'
@@ -102,8 +101,8 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " Terminal
 Plug 'voldikss/vim-floaterm'
 
-" IdentLine
-Plug 'Yggdroot/indentLine'
+" TODO: IdentLine
+
 
 " Auto close tag
 Plug 'Raimondi/delimitMate'
