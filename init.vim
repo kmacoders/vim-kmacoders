@@ -42,6 +42,9 @@ Plug 'dracula/vim'
 " Editor Config
 Plug 'editorconfig/editorconfig-vim'
 
+" Github Copilot
+Plug 'github/copilot.vim'
+
 " Polygot
 " Giảm giật lag khi vào file .vue do conflig starup với vim-vue
 " https://github.com/posva/vim-vue/issues/95
