@@ -8,13 +8,10 @@
   "languageserver": {
     "liquid": {
       "command": "theme-check-language-server",
-      "filetypes": [
-        "liquid"
-      ],
-      "rootPatterns": [
-        ".theme-check.yml"
-      ]
+      "filetypes": ["liquid"],
+      "rootPatterns": [".theme-check.yml"]
     }
   },
-  "svelte.enable-ts-plugin": false
+  "svelte.enable-ts-plugin": false,
+  "coc.preferences.formatOnSave": true
 }
